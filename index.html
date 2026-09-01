@@ -348,27 +348,44 @@
             position: fixed;
             right: 22px;
             bottom: 22px;
-            width: 62px;
-            height: 62px;
+            width: 64px;
+            height: 64px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #25D366;
+            background: linear-gradient(135deg, #25d366 0%, #1ebe5d 100%);
             color: #fff;
-            border-radius: 50%;
-            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.24);
+            border-radius: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 0 16px 30px rgba(37, 211, 102, 0.38), 0 8px 16px rgba(0, 0, 0, 0.18);
             text-decoration: none;
             z-index: 5000;
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
-            transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease;
+            transform: translateY(0) scale(1);
+            transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s ease, box-shadow 0.28s ease;
+            animation: whatsappPulse 2.2s ease-in-out infinite;
+        }
+
+        .whatsapp-float::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border-radius: 28px;
+            background: rgba(37, 211, 102, 0.12);
+            z-index: -1;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 22px 36px rgba(37, 211, 102, 0.45), 0 10px 18px rgba(0, 0, 0, 0.2);
         }
 
         .whatsapp-float svg {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             fill: currentColor;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18));
         }
 
         .whatsapp-float.show {
@@ -377,12 +394,27 @@
             transform: translateY(0);
         }
 
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 16px 30px rgba(37, 211, 102, 0.38), 0 8px 16px rgba(0, 0, 0, 0.18);
+            }
+            50% {
+                box-shadow: 0 18px 32px rgba(37, 211, 102, 0.5), 0 10px 18px rgba(0, 0, 0, 0.2);
+            }
+        }
+
         @media (max-width: 768px) {
             .whatsapp-float {
                 right: 16px;
                 bottom: 16px;
-                width: 54px;
-                height: 54px;
+                width: 58px;
+                height: 58px;
+                border-radius: 18px;
+            }
+
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
             }
         }
 
@@ -470,7 +502,7 @@
                 <p>Whether it is a private dinner or a global destination event, our team delivers precision and flavor in equal measure.</p>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; font-size: 0.9rem;">
                     <div style="border-left: 3px solid var(--gold); padding-left: 15px;">
-                        <div style="color: var(--gold); font-weight: 600; font-size: 1.3rem;">9+ Years</div>
+                        <div style="color: var(--gold); font-weight: 600; font-size: 1.3rem;">5+ Years</div>
                         <div style="color: #888;">Industry Experience</div>
                     </div>
                     <div style="border-left: 3px solid var(--gold); padding-left: 15px;">
@@ -979,16 +1011,16 @@
             <div>
                 <h4 style="color: var(--gold); margin-bottom: 25px; letter-spacing: 2px;">SOCIAL</h4>
                 <div style="font-size: 1.5rem; display: flex; gap: 20px;">
-                    <a href="#" style="color:white;">IG</a>
-                    <a href="#" style="color:white;">WA</a>
+                    <a href="https://www.instagram.com/229_finger_foods_and_grills?igsi=aXgweWJnM3czb3Vi" style="color:white;">IG</a>
+                    <a href="https://wa.me/2348155095977" style="color:white;">WA</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/2348155095977" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <!-- <a href="https://wa.me/2348155095977" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
         <svg class="icon icon-whatsapp" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
-    </a>
+    </a> -->
 
     <script>
         // PRICING PACKAGE ORDER FUNCTION
